@@ -4,22 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
-    <link type="text/css" href="{% static 'index.css' %}" rel="stylesheet">
-    <link type="text/css" href="{% static 'work.css' %}" rel="stylesheet">
-    <script src="../static/js/slideshow.js"></script>
+    <link type="text/css" href="{% static 'css/index.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/work.css' %}" rel="stylesheet">
     <title>Работы</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="content">
             <div class="slideshow-wrap">
-                <img class="slide" src="../static/foto1.jpg" title="Foto of work">
-                <img class="slide" src="../static/foto0.jpg" title="Foto of work">
-                <img class="slide" src="../static/foto2.jpg" title="Foto of work">
+                <img class="slide" src="../static/img/foto1.jpg" title="Foto of work">
+                <img class="slide" src="../static/img/foto0.jpg" title="Foto of work">
+                <img class="slide" src="../static/img/foto2.jpg" title="Foto of work">
                 <div class="buttons-wrap">
-                    <img class="button" src="../static/sign_off.png" onclick="currentSlide(1)">
-                    <img class="button active" src="../static/sign_off.png" onclick="currentSlide(2)">
-                    <img class="button" src="../static/sign_off.png" onclick="currentSlide(3)">
+                    <img class="button" src="../static/img/sign_off.png" onclick="currentSlide(1)">
+                    <img class="button active" src="../static/img/sign_off.png" onclick="currentSlide(2)">
+                    <img class="button" src="../static/img/sign_off.png" onclick="currentSlide(3)">
                 </div>
             </div>
             <div>
@@ -33,37 +32,6 @@
             <a href="/">project</a>
         </div>
     </div>
-    <script>
-        var slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("slide");
-            var dots = document.getElementsByClassName("button");
-
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active";
-        }
-    </script>
+    <script src="../static/js/slideshow.js"></script>
 </body>
 </html>
