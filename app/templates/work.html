@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
+    <link type="text/css" href="{% static 'index.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'work.css' %}" rel="stylesheet">
+    <script src="../static/js/slideshow.js"></script>
+    <title>Работы</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="slideshow-wrap">
+                <img class="slide" src="../static/foto1.jpg" title="Foto of work">
+                <img class="slide" src="../static/foto0.jpg" title="Foto of work">
+                <img class="slide" src="../static/foto2.jpg" title="Foto of work">
+                <div class="buttons-wrap">
+                    <img class="button" src="../static/sign_off.png" onclick="currentSlide(1)">
+                    <img class="button active" src="../static/sign_off.png" onclick="currentSlide(2)">
+                    <img class="button" src="../static/sign_off.png" onclick="currentSlide(3)">
+                </div>
+            </div>
+            <div>
+                <h2>title of the project</h2>
+            </div>
+            <div class="text">
+                lorem ipsum dolor sit amet, consectetur ad- ipiscing elit, sed do eiusmod tempor incidiipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer- citation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cil- lum dolore eu fugiat nulla pariatur. Excep- teur sint occaecat cupidatat non proident, sunt in culpa qui o cia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="footer">
+            <a href="/">project</a>
+        </div>
+    </div>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slide");
+            var dots = document.getElementsByClassName("button");
+
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>
